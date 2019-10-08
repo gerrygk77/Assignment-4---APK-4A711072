@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="https://s3.amazonaws.com/codiqa-cdn/codiqa.ext.css" rel="stylesheet">
+  <link href="https://s3.amazonaws.com/codiqa-cdn/mobile/1.4.2/jquery.mobile-1.4.2.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="https://s3.amazonaws.com/codiqa-cdn/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+  <script src="https://s3.amazonaws.com/codiqa-cdn/codiqa.ext.js"></script>
+
+  <script src="script.js"></script>
+
+</head>
+<body>
+<div data-role="page" data-control-title="Personal Profile" id="page3">
+    <div data-theme="b" data-role="header">
+        <h1 class="ui-title">
+            Elon Musk - 4A71102
+        </h1>
+    </div>
+    <div role="main" class="ui-content">
+        <div style=" text-align:center" data-controltype="image">
+            <img style="width: px; height: 200px" src="data:image/jpeg;base64,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">
+        </div>
+        <div data-role="collapsible-set">
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    Personal Profile - 4A711072
+                </h3>
+                <div data-controltype="textblock">
+                    <div class="tablerow">
+                        <div class="left-table">
+                            <strong>
+                                Name:&nbsp;
+                            </strong>
+                            Elon Reeve Musk
+                        </div>
+                        <div class="left-table">
+                            <strong style="font-size: small;" data-mce-style="font-size: small;">
+                                Age
+                            </strong>
+                            : 48
+                        </div>
+                        <div class="left-table">
+                            <strong style="font-size: small;" data-mce-style="font-size: small;">
+                                Gender
+                            </strong>
+                            : Male
+                        </div>
+                        <div class="left-table">
+                            <strong>
+                                Location
+                            </strong>
+                            :&nbsp;USA
+                        </div>
+                        <div class="left-table">
+                            <strong>
+                                Job
+                            </strong>
+                            :&nbsp;Entrepreneur, &nbsp;Investor and Engineer
+                        </div>
+                        <div class="left-table">
+                            <strong>
+                                Title
+                            </strong>
+                            :&nbsp;
+                            <ul>
+                                <li>
+                                    Founder, CEO, Lead Designer of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/SpaceX" title="SpaceX" data-mce-href="https://en.wikipedia.org/wiki/SpaceX">
+                                        SpaceX
+                                    </a>
+                                </li>
+                                <li>
+                                    CEO, Product Architect of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Tesla,_Inc." title="Tesla, Inc."
+                                    data-mce-href="https://en.wikipedia.org/wiki/Tesla,_Inc.">
+                                        Tesla, Inc.
+                                    </a>
+                                </li>
+                                <li>
+                                    Co-founder of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Neuralink" title="Neuralink" data-mce-href="https://en.wikipedia.org/wiki/Neuralink">
+                                        Neuralink
+                                    </a>
+                                </li>
+                                <li>
+                                    Founder of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/The_Boring_Company" title="The Boring Company"
+                                    data-mce-href="https://en.wikipedia.org/wiki/The_Boring_Company">
+                                        The Boring Company
+                                    </a>
+                                </li>
+                                <li>
+                                    Co-founder of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Zip2" title="Zip2" data-mce-href="https://en.wikipedia.org/wiki/Zip2">
+                                        Zip2
+                                    </a>
+                                </li>
+                                <li>
+                                    Founder of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/X.com" title="X.com" data-mce-href="https://en.wikipedia.org/wiki/X.com">
+                                        X.com
+                                    </a>
+                                    &nbsp;(now&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/PayPal" title="PayPal" data-mce-href="https://en.wikipedia.org/wiki/PayPal">
+                                        PayPal
+                                    </a>
+                                    )
+                                </li>
+                                <li>
+                                    Co-founder of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/OpenAI" title="OpenAI" data-mce-href="https://en.wikipedia.org/wiki/OpenAI">
+                                        OpenAI
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="collapsible-set">
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    Education
+                </h3>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            Undergraduate
+                        </h3>
+                        <div data-controltype="textblock">
+                            <p>
+                                <span style="font-size: small;" data-mce-style="font-size: small;">
+                                    <span>
+                                        At the age of 17, in 1989, Musk moved to Canada to attend&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Queen%27s_University" title="Queen's University"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Queen%27s_University">
+                                        Queen's University
+                                    </a>
+                                    <span>
+                                        , avoiding mandatory service in the&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/South_African_National_Defence_Force"
+                                    title="South African National Defence Force" data-mce-href="https://en.wikipedia.org/wiki/South_African_National_Defence_Force">
+                                        South African military
+                                    </a>
+                                    <span>
+                                        . He left in 1992 to study&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Business" title="Business" data-mce-href="https://en.wikipedia.org/wiki/Business">
+                                        business
+                                    </a>
+                                    <span>
+                                        &nbsp;and&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Physics" title="Physics" data-mce-href="https://en.wikipedia.org/wiki/Physics">
+                                        physics
+                                    </a>
+                                    <span>
+                                        &nbsp;at the&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/University_of_Pennsylvania" title="University of Pennsylvania"
+                                    data-mce-href="https://en.wikipedia.org/wiki/University_of_Pennsylvania">
+                                        University of Pennsylvania
+                                    </a>
+                                    <span>
+                                        ; he graduated with an undergraduate degree in&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Economics" title="Economics" data-mce-href="https://en.wikipedia.org/wiki/Economics">
+                                        economics
+                                    </a>
+                                    <span>
+                                        &nbsp;and stayed for a second bachelor's degree in physics.
+                                    </span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            PhD
+                        </h3>
+                        <div data-controltype="textblock">
+                            <p>
+                                <span style="font-size: small;">
+                                    After leaving Penn, Musk headed to&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Stanford_University" title="Stanford University"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Stanford_University">
+                                        Stanford University
+                                    </a>
+                                    &nbsp;in&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/California" title="California"
+                                    data-mce-href="https://en.wikipedia.org/wiki/California">
+                                        California
+                                    </a>
+                                    &nbsp;to pursue a PhD in&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Energy_physics" class="mw-redirect"
+                                    title="Energy physics" data-mce-href="https://en.wikipedia.org/wiki/Energy_physics">
+                                        energy physics
+                                    </a>
+                                    . However, his move coincided with the&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Internet_boom" class="mw-redirect"
+                                    title="Internet boom" data-mce-href="https://en.wikipedia.org/wiki/Internet_boom">
+                                        Internet boom
+                                    </a>
+                                    , and he dropped out of Stanford after just two days to become a part
+                                    of it, launching his first company, Zip2 Corporation.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="collapsible-set">
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    Career History
+                </h3>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            1995 - 1999: Zip 2
+                        </h3>
+                        <div data-controltype="textblock">
+                            <p>
+                                <span style="font-size: small;">
+                                    In 1995, Musk and his brother,&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Kimbal_Musk" title="Kimbal Musk"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Kimbal_Musk">
+                                        Kimbal
+                                    </a>
+                                    , started&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Zip2" title="Zip2" data-mce-href="https://en.wikipedia.org/wiki/Zip2">
+                                        Zip2
+                                    </a>
+                                    , a web software company, with money raised from a small group of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Angel_investor" title="Angel investor"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Angel_investor">
+                                        angel investors
+                                    </a>
+                                    .
+                                    <sup id="cite_ref-rollingstone20171115_29-4" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-rollingstone20171115-29"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-rollingstone20171115-29">
+                                            [29]
+                                        </a>
+                                    </sup>
+                                    &nbsp;The company developed and marketed an Internet city guide for the&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Newspaper" title="Newspaper" data-mce-href="https://en.wikipedia.org/wiki/Newspaper">
+                                        newspaper
+                                    </a>
+                                    &nbsp;publishing industry.
+                                    <sup id="cite_ref-Friedman_46-0" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Friedman-46"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Friedman-46">
+                                            [46]
+                                        </a>
+                                    </sup>
+                                    &nbsp;Musk obtained contracts with&nbsp;
+                                    <i>
+                                        <a href="https://en.wikipedia.org/wiki/The_New_York_Times" title="The New York Times"
+                                        data-mce-href="https://en.wikipedia.org/wiki/The_New_York_Times">
+                                            The New York Times
+                                        </a>
+                                    </i>
+                                    &nbsp;and the&nbsp;
+                                    <i>
+                                        <a href="https://en.wikipedia.org/wiki/Chicago_Tribune" title="Chicago Tribune"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Chicago_Tribune">
+                                            Chicago Tribune
+                                        </a>
+                                    </i>
+                                    <sup id="cite_ref-paypalwars_47-0" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-paypalwars-47"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-paypalwars-47">
+                                            [47]
+                                        </a>
+                                    </sup>
+                                    &nbsp;and persuaded the board of directors to abandon plans for a merger
+                                    with&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/CitySearch" class="mw-redirect"
+                                    title="CitySearch" data-mce-href="https://en.wikipedia.org/wiki/CitySearch">
+                                        CitySearch
+                                    </a>
+                                    .
+                                    <sup id="cite_ref-Startup_Playbook_48-0" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Startup_Playbook-48"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Startup_Playbook-48">
+                                            [48]
+                                        </a>
+                                    </sup>
+                                    &nbsp;While at Zip2, Musk wanted to become CEO; however, none of the board
+                                    members would allow it.
+                                    <sup id="cite_ref-vance_32-2" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-vance-32" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-vance-32">
+                                            [32]
+                                        </a>
+                                    </sup>
+                                    &nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Compaq" title="Compaq" data-mce-href="https://en.wikipedia.org/wiki/Compaq">
+                                        Compaq
+                                    </a>
+                                    &nbsp;acquired Zip2 for&nbsp;US$307
+                                    <span class="nowrap">
+                                        &nbsp;
+                                    </span>
+                                    million&nbsp;in cash
+                                    <sup id="cite_ref-vance_32-3" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-vance-32" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-vance-32">
+                                            [32]
+                                        </a>
+                                    </sup>
+                                    <sup class="reference">
+                                        :
+                                        <span title="&quot;Then, in February 1999, the PC maker Cpmpaq Computer suddently offered to pay $307 million in cash for Zip2.&quot;">
+                                            109
+                                        </span>
+                                    </sup>
+                                    &nbsp;and&nbsp;US$34
+                                    <span class="nowrap">
+                                        &nbsp;
+                                    </span>
+                                    million&nbsp;in&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Stock_options" class="mw-redirect"
+                                    title="Stock options" data-mce-href="https://en.wikipedia.org/wiki/Stock_options">
+                                        stock options
+                                    </a>
+                                    <sup class="noprint Inline-Template Template-Fact">
+                                        [
+                                        <i>
+                                            <a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"
+                                            data-mce-href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed">
+                                                <span title="This claim needs references to reliable sources. (May 2018)">
+                                                    citation needed
+                                                </span>
+                                            </a>
+                                        </i>
+                                        ]
+                                    </sup>
+                                    &nbsp;in February 1999.
+                                    <sup id="cite_ref-49" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-49" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-49">
+                                            [49]
+                                        </a>
+                                    </sup>
+                                    &nbsp;Musk received&nbsp;US$22&nbsp;million&nbsp;for his 7 percent share
+                                    from the sale.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            1999 - 2002: X.com and Paypal
+                        </h3>
+                        <div data-controltype="textblock">
+                            <p>
+                                <span style="font-size: small;">
+                                    In March 1999, Musk co-founded&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/X.com" title="X.com" data-mce-href="https://en.wikipedia.org/wiki/X.com">
+                                        X.com
+                                    </a>
+                                    , an online financial services and&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/E-mail" class="mw-redirect" title="E-mail"
+                                    data-mce-href="https://en.wikipedia.org/wiki/E-mail">
+                                        e-mail
+                                    </a>
+                                    &nbsp;payment company, with&nbsp;US$10
+                                    <span class="nowrap">
+                                        &nbsp;
+                                    </span>
+                                    million&nbsp;from the sale of Zip2.
+                                    <sup id="cite_ref-:2_39-1" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-:2-39" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-:2-39">
+                                            [39]
+                                        </a>
+                                    </sup>
+                                    <sup id="cite_ref-Friedman_46-1" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Friedman-46"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Friedman-46">
+                                            [46]
+                                        </a>
+                                    </sup>
+                                    <sup id="cite_ref-Startup_Playbook_48-1" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Startup_Playbook-48"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-Startup_Playbook-48">
+                                            [48]
+                                        </a>
+                                    </sup>
+                                    &nbsp;One year later, the company merged with&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Confinity" title="Confinity" data-mce-href="https://en.wikipedia.org/wiki/Confinity">
+                                        Confinity
+                                    </a>
+                                    ,
+                                    <sup id="cite_ref-paypalwars_47-2" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-paypalwars-47"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-paypalwars-47">
+                                            [47]
+                                        </a>
+                                    </sup>
+                                    <sup id="cite_ref-50" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-50" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-50">
+                                            [50]
+                                        </a>
+                                    </sup>
+                                    &nbsp;which had a money-transfer service called&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/PayPal#History" title="PayPal"
+                                    data-mce-href="https://en.wikipedia.org/wiki/PayPal#History">
+                                        PayPal
+                                    </a>
+                                    . The merged company focused on the PayPal service and was renamed PayPal
+                                    in 2001. PayPal's early growth was driven mainly by a&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Viral_marketing" title="Viral marketing"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Viral_marketing">
+                                        viral marketing
+                                    </a>
+                                    &nbsp;campaign where new customers were recruited when they received money
+                                    through the service.
+                                    <sup id="cite_ref-51" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-51" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-51">
+                                            [51]
+                                        </a>
+                                    </sup>
+                                    &nbsp;Musk was ousted in October 2000 from his role as CEO (although he
+                                    remained on the board) due to disagreements with other company leadership,
+                                    notably over his desire to move PayPal's&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Unix" title="Unix" data-mce-href="https://en.wikipedia.org/wiki/Unix">
+                                        Unix
+                                    </a>
+                                    -based infrastructure to&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Microsoft_Windows" title="Microsoft Windows"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Microsoft_Windows">
+                                        Microsoft Windows
+                                    </a>
+                                    .
+                                    <sup id="cite_ref-52" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-52" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-52">
+                                            [52]
+                                        </a>
+                                    </sup>
+                                    &nbsp;In October 2002, PayPal was acquired by&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/EBay" title="EBay" data-mce-href="https://en.wikipedia.org/wiki/EBay">
+                                        eBay
+                                    </a>
+                                    &nbsp;for&nbsp;US$1.5&nbsp;billion&nbsp;in stock, of which Musk received&nbsp;US$165
+                                    <span class="nowrap">
+                                        &nbsp;
+                                    </span>
+                                    million.
+                                    <sup id="cite_ref-53" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-53" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-53">
+                                            [53]
+                                        </a>
+                                    </sup>
+                                    &nbsp;Before its sale, Musk, who was the company's largest&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Shareholder" title="Shareholder"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Shareholder">
+                                        shareholder
+                                    </a>
+                                    , owned 11.7% of PayPal's shares.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            2001 - Now: Space X and Tesla
+                        </h3>
+                        <div data-controltype="textblock">
+                            <p>
+                                <span style="font-size: small;">
+                                    In 2001, Musk conceived&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Mars_Oasis" class="mw-redirect"
+                                    title="Mars Oasis" data-mce-href="https://en.wikipedia.org/wiki/Mars_Oasis">
+                                        Mars Oasis
+                                    </a>
+                                    , a project to land a miniature experimental&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Greenhouse" title="Greenhouse"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Greenhouse">
+                                        greenhouse
+                                    </a>
+                                    &nbsp;on Mars, containing food crops growing on Martian&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Regolith" title="Regolith" data-mce-href="https://en.wikipedia.org/wiki/Regolith">
+                                        regolith
+                                    </a>
+                                    , in an attempt to regain&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Public_interest" title="Public interest"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Public_interest">
+                                        public interest
+                                    </a>
+                                    &nbsp;in space exploration.
+                                </span>
+                            </p>
+                            <p>
+                                <span style="font-size: small;">
+                                    n 2006, SpaceX was awarded a contract from NASA to continue the development
+                                    and test of the SpaceX Falcon 9&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Launch_vehicle" title="Launch vehicle"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Launch_vehicle">
+                                        launch vehicle
+                                    </a>
+                                    &nbsp;and&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Dragon_spacecraft" class="mw-redirect"
+                                    title="Dragon spacecraft" data-mce-href="https://en.wikipedia.org/wiki/Dragon_spacecraft">
+                                        Dragon spacecraft
+                                    </a>
+                                    &nbsp;in order to transport cargo to the International Space Station,
+                                    <sup id="cite_ref-NASA_COTS-2006_66-0" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-NASA_COTS-2006-66"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-NASA_COTS-2006-66">
+                                            [66]
+                                        </a>
+                                    </sup>
+                                    <sup class="noprint Inline-Template">
+                                        [
+                                        <i>
+                                            <a href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability"
+                                            data-mce-href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability">
+                                                <span title="The material near this tag failed verification of its source citation(s). (October 2015)">
+                                                    failed verification
+                                                </span>
+                                            </a>
+                                        </i>
+                                        ]
+                                    </sup>
+                                    &nbsp;followed by a&nbsp;US$1.6 billion&nbsp;NASA&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Commercial_Resupply_Services" title="Commercial Resupply Services"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Commercial_Resupply_Services">
+                                        Commercial Resupply Services
+                                    </a>
+                                    &nbsp;program contract on December 23, 2008, for 12 flights of its Falcon
+                                    9 rocket and Dragon spacecraft to the Space Station, replacing the&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Federal_government_of_the_United_States"
+                                    title="Federal government of the United States" data-mce-href="https://en.wikipedia.org/wiki/Federal_government_of_the_United_States">
+                                        US
+                                    </a>
+                                    &nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Space_Shuttle" title="Space Shuttle"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Space_Shuttle">
+                                        Space Shuttle
+                                    </a>
+                                    &nbsp;after it retired in 2011.
+                                </span>
+                            </p>
+                            <p>
+                                <span style="font-size: small;">
+                                    <span>
+                                        Tesla, Inc. (originally Tesla Motors) was incorporated in July 2003 by&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Martin_Eberhard" title="Martin Eberhard"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Martin_Eberhard">
+                                        Martin Eberhard
+                                    </a>
+                                    <span>
+                                        &nbsp;and&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Marc_Tarpenning" title="Marc Tarpenning"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Marc_Tarpenning">
+                                        Marc Tarpenning
+                                    </a>
+                                    <span>
+                                        , who financed the company until the&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Series_A_round" title="Series A round"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Series_A_round">
+                                        Series A round
+                                    </a>
+                                    <span>
+                                        &nbsp;of funding.
+                                    </span>
+                                    <sup id="cite_ref-90" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-90" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-90">
+                                            [90]
+                                        </a>
+                                    </sup>
+                                    <span>
+                                        &nbsp;Both men played active roles in the company's early development
+                                        prior to Elon Musk's involvement.
+                                    </span>
+                                    <sup id="cite_ref-From_Archive.org-7620615_91-0" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-From_Archive.org-7620615-91"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-From_Archive.org-7620615-91">
+                                            [91]
+                                        </a>
+                                    </sup>
+                                    <span>
+                                        &nbsp;Musk led the Series A round of investment in February 2004, joining
+                                        Tesla's board of directors as its chairman.
+                                    </span>
+                                    <sup id="cite_ref-MasterPlan_92-0" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-MasterPlan-92"
+                                        data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-MasterPlan-92">
+                                            [92]
+                                        </a>
+                                    </sup>
+                                    <span>
+                                        &nbsp;Musk took an active role within the company and oversaw Roadster
+                                        product design at a detailed level, but was not deeply involved in day-to-day
+                                        business operations.
+                                    </span>
+                                    <sup id="cite_ref-93" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-93" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-93">
+                                            [93]
+                                        </a>
+                                    </sup>
+                                    <span>
+                                        &nbsp;Following the&nbsp;
+                                    </span>
+                                    <a href="https://en.wikipedia.org/wiki/Financial_crisis_of_2007%E2%80%932008"
+                                    title="Financial crisis of 2007–2008" data-mce-href="https://en.wikipedia.org/wiki/Financial_crisis_of_2007%E2%80%932008">
+                                        financial crisis in 2008
+                                    </a>
+                                    <span>
+                                        &nbsp;and after a series of escalating conflicts in 2007, Eberhard was
+                                        ousted from the firm.
+                                    </span>
+                                    <sup id="cite_ref-:6_69-1" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-:6-69" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-:6-69">
+                                            [69]
+                                        </a>
+                                    </sup>
+                                    <sup id="cite_ref-94" class="reference">
+                                        <a href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-94" data-mce-href="https://en.wikipedia.org/wiki/Elon_Musk#cite_note-94">
+                                            [94]
+                                        </a>
+                                    </sup>
+                                    <span>
+                                        &nbsp;Musk assumed leadership of the company as CEO and product architect
+                                        in 2008, positions he still holds today. Indeed, as of 2019, Elon Musk
+                                        is the longest tenured CEO of any automotive manufacturer globally
+                                    </span>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="collapsible-set">
+            <div data-role="collapsible" data-collapsed="false">
+                <h3>
+                    Interest &amp; Hobbies
+                </h3>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            Artificial Inteligence
+                        </h3>
+                        <div data-controltype="textblock">
+                            <p>
+                                <span style="font-size: small;">
+                                    Musk has frequently spoken about the&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Existential_risk_from_advanced_artificial_intelligence"
+                                    class="mw-redirect" title="Existential risk from advanced artificial intelligence"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Existential_risk_from_advanced_artificial_intelligence">
+                                        potential dangers
+                                    </a>
+                                    &nbsp;of&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" title="Artificial intelligence"
+                                    data-mce-href="https://en.wikipedia.org/wiki/Artificial_intelligence">
+                                        artificial intelligence
+                                    </a>
+                                    , calling it "the most serious threat to the survival of the human race".
+                                    During a 2014 interview at the&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/MIT" class="mw-redirect" title="MIT"
+                                    data-mce-href="https://en.wikipedia.org/wiki/MIT">
+                                        MIT
+                                    </a>
+                                    &nbsp;AeroAstro Centennial Symposium, Musk described AI as humanity's
+                                    largest&nbsp;
+                                    <a href="https://en.wikipedia.org/wiki/Existential_threat" class="mw-redirect"
+                                    title="Existential threat" data-mce-href="https://en.wikipedia.org/wiki/Existential_threat">
+                                        existential threat
+                                    </a>
+                                    , further stating, "I'm increasingly inclined to think that there should
+                                    be some regulatory oversight, maybe at the national and international level,
+                                    just to make sure that we don't do something very foolish." Musk described
+                                    the creation of artificial intelligence as "summoning the demon"
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            Public transport
+                        </h3>
+                        <div data-controltype="textblock">
+                            <p>
+                                <span style="font-size: small;">
+                                    I think public transport is painful. It sucks. Why do you want to get
+                                    on something with a lot of other people, that doesn't leave where you want
+                                    it to leave, doesn't start where you want it to start, doesn't end where
+                                    you want it to end? And it doesn't go all the time. ... It's a pain in
+                                    the ass. That's why everyone doesn't like it. And there's like a bunch
+                                    of random strangers, one of who might be a serial killer, OK, great. And
+                                    so that's why people like individualized transport, that goes where you
+                                    want, when you want.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3 class="ui-title">
+            Elon Musk Mobile Portfolio
+        </h3>
+    </div>
+</div>
+</body>
+</html>
